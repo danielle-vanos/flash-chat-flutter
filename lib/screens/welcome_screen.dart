@@ -36,11 +36,10 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
       //   else if(status == AnimationStatus.dismissed){
       //     controller.forward();
       //   }
-      // });
+      // })
 
       controller.addListener(() {
         setState(() {});
-        print(animation.value);
       });
     
   }
@@ -63,11 +62,13 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
           children: <Widget>[
             Row(
               children: <Widget>[
-                Hero(
-                  tag: 'logo',
-                  child: Container(
-                    child: Image.asset('images/logo.png'),
-                    height: 60.0,
+                Flexible(
+                  child: Hero(
+                    tag: 'logo',
+                    child: Container(
+                      child: Image.asset('images/logo.png'),
+                      height: 60.0,
+                    ),
                   ),
                 ),
                 AnimatedTextKit(animatedTexts: [
@@ -90,13 +91,17 @@ class _WelcomeScreenState extends State<WelcomeScreen> with SingleTickerProvider
             RoundedButton(
               buttonColor: Colors.lightBlueAccent, 
               buttonTitle: 'Log in',
-              buttonAction: (){},
+              buttonAction: (){
+                Navigator.pushNamed(context, LoginScreen.id);
+              },
               ),
             
             RoundedButton(
               buttonColor: Colors.blueAccent, 
               buttonTitle: 'Register', 
-              buttonAction: (){} //Navigator.pushNamed(context, RegistrationScreen.id);
+              buttonAction: (){
+                Navigator.pushNamed(context, RegistrationScreen.id);
+              } 
               )
           ],
         ),

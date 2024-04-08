@@ -6,7 +6,7 @@ class RoundedButton extends StatelessWidget {
 
   final Color buttonColor; 
   final String buttonTitle; 
-  final Function buttonAction;
+  final void Function() buttonAction;
 
   RoundedButton({
     required this.buttonColor,
@@ -24,7 +24,7 @@ class RoundedButton extends StatelessWidget {
         color: buttonColor, // Colors.lightBlueAccent,
         borderRadius: BorderRadius.circular(30.0),
         child: MaterialButton(
-          onPressed: () => buttonAction, //() {
+          onPressed: buttonAction, //() {
               // buttonAction;
              //Navigator.pushNamed(context, LoginScreen.id);
           //},
